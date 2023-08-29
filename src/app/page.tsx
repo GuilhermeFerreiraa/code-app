@@ -8,7 +8,7 @@ export default function Home() {
   <main>
    <div style={{ display: 'flex', alignItems: 'start', gap: '30px', justifyContent: 'space-between' }}>
     <AccountDetails />
-    <ProductDetails /> 
+    <ProductDetails />
    </div>
   </main>
  )

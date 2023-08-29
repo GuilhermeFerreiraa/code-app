@@ -1,10 +1,9 @@
 'use client'
 
-import { styled } from "styled-components"
+import { styled } from "styled-components";
 import Logo from "./Logo";
-import Link from "next/link";
-import IconArrow from "./icon-arrow";
-import IconCart from "./icon-cart";
+import CartInfo from "./cart-info";
+import AccountInfo from "./account-info";
 
 export default function Header() {
 
@@ -40,6 +39,12 @@ export default function Header() {
   max-width: 1102px;
   justify-content: space-between;
   border-bottom: 1px solid var(--color-gray-50);
+
+  .account-details {
+   display: flex;
+   gap: 56px;
+  }
+
  `;
 
  const NavList = styled.ul`
@@ -58,25 +63,6 @@ export default function Header() {
   }
  `;
 
- const AccountList = styled.div`
-  display: flex;
-  gap: 56px;
-
-  div {
-   gap: 16px;
-   display: flex;
-   align-items: center;
-
-   span {
-    color: var(--text );
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-   }
-  }
- `;
-
  return (
   <Navbar>
    <Logo />
@@ -91,21 +77,12 @@ export default function Header() {
     ))}
    </NavList>
 
-   <AccountList>
-    <div>
-     <span>
-      Conta
-     </span>
-     <IconArrow />
-    </div>
+   <div className="account-details">
+    <AccountInfo />
 
-    <div>
-     <span>
-      2 items
-     </span>
-     <IconCart />
-    </div>
-   </AccountList>
+    <CartInfo />
+   </div>
+
   </Navbar>
  )
 }
