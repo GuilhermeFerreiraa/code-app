@@ -59,7 +59,7 @@ export default function Steps() {
     <span />
    </div>
 
-   <div className={stepOrder >= 0 ? "isChecked" : ""}>
+   <div className={stepOrder > 0 ? "isChecked" : ""}>
     <p>
      Envio
     </p>
