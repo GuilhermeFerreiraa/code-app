@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-export default function Input() {
+type InputProps = {
+  placeholder?: string,
+  type: string,
+}
+
+export default function Input({ placeholder, type }: InputProps) {
 
   const Input = styled.input`
     border: 1px solid var(--color-information);
@@ -15,7 +20,6 @@ export default function Input() {
     font-weight: 500;
     font-size: 16px;
     outline: none;
-    width: 100%;
 
     &:hover{
       border: 1px solid var(--dark-gray-200);
@@ -31,6 +35,6 @@ export default function Input() {
  `;
 
   return (
-    <Input placeholder="Cupom de desconto" />
+    <Input placeholder={placeholder} type={type} />
   )
 }

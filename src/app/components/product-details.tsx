@@ -138,6 +138,10 @@ export default function ProductDetails() {
     justify-content: space-between;
     width: 100%;
     gap: 32px;
+
+    input {
+      width: 100%;
+    }
  `;
 
   const tribute = 3.45;
@@ -176,8 +180,9 @@ export default function ProductDetails() {
       </OrderInfos>
 
       <DiscountCuopon>
-        <Input />
+        <Input type="text" placeholder="Cupom de desconto" />
         <Button
+          outline
           label="Aplicar"
           onSubmit={() => { }}
         />
