@@ -1,15 +1,24 @@
-import Steps from "./components/Steps";
+'use client'
+
+import styled from 'styled-components';
+
 import ProductDetails from "./components/product-details";
 import AccountDetails from "./components/user-account";
 
 export default function Home() {
 
+ const Container = styled.div`
+  display: grid;
+  column-gap: 100px;
+  grid-template-columns: 1fr 1fr;
+ `;
+
  return (
   <main>
-   <div style={{ display: 'flex', alignItems: 'start', gap: '30px', justifyContent: 'space-between' }}>
+   <Container>
     <AccountDetails />
     <ProductDetails />
-   </div>
+   </Container>
   </main>
  )
 }
