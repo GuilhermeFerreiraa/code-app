@@ -31,14 +31,17 @@ export default function Header() {
  ];
 
  const Navbar = styled.header`
-  height: 80px;
-  display: flex; 
-  margin: 0 auto;
-  align-items: center;
-  padding: 0 120px;
-  max-width: 1102px;
-  justify-content: space-between;
   border-bottom: 1px solid var(--color-gray-50);
+  
+  
+  .container_header_box {
+    height: 80px;
+    display: flex; 
+    margin: 0 auto;
+    max-width: 1102px;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   .account-details {
    display: flex;
@@ -65,22 +68,24 @@ export default function Header() {
 
  return (
   <Navbar>
-   <Logo />
+   <div className="container_header_box">
+    <Logo />
 
-   <NavList>
-    {navItem.map((item, indx) => (
-     <li key={item.id}>
-      <a>
-       {item.name}
-      </a>
-     </li>
-    ))}
-   </NavList>
+    <NavList>
+     {navItem.map((item, indx) => (
+      <li key={item.id}>
+       <a>
+        {item.name}
+       </a>
+      </li>
+     ))}
+    </NavList>
 
-   <div className="account-details">
-    <AccountInfo />
+    <div className="account-details">
+     <AccountInfo />
 
-    <CartInfo />
+     <CartInfo />
+    </div>
    </div>
 
   </Navbar>
