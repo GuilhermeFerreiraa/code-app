@@ -29,7 +29,10 @@ export default function ProductDetails() {
 
    img {
     border-radius: 12px;
-   }
+    width: 100%;
+    height: 100%; 
+    object-fit: contain;
+  }
 
    .resume_order_finish_box {
     width: 100%;
@@ -184,7 +187,7 @@ export default function ProductDetails() {
         <Button
           outline
           label="Aplicar"
-          onSubmit={() => { }}
+          onSubmit={() => { } } type={'button'}
         />
       </DiscountCuopon>
 
