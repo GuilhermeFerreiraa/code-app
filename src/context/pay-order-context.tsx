@@ -4,10 +4,10 @@ import React, { createContext, useState } from "react";
 
 export const StepOrder = createContext({
  stepOrder: 0,
- setStepOrder: (value: number) => { },
+ setStepOrder: (value: number | any) => { },
 })
 
-type ProviderProps = {
+interface ProviderProps {
  children: React.ReactNode
 }
 
