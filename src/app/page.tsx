@@ -2,23 +2,25 @@
 
 import styled from 'styled-components';
 
-import ProductDetails from "./components/product-details";
-import AccountDetails from "./components/user-account";
+import { CartProductDetails } from "./components/Cart";
+import { AccountDetails } from "./components/Account";
 
 export default function Home() {
 
- const Container = styled.div`
+ const Container = styled.main`
+  padding: 130px 0 64px 0;
+  max-width: 1102px;
+  margin: 0 auto;
+
   display: grid;
   column-gap: 100px;
   grid-template-columns: 1fr 1fr;
- `;
+`;
 
  return (
-  <main>
-   <Container>
-    <AccountDetails />
-    <ProductDetails />
-   </Container>
-  </main>
+  <Container>
+   <AccountDetails />
+   <CartProductDetails />
+  </Container>
  )
 }

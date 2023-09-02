@@ -1,47 +1,56 @@
-import { FormEventHandler, MouseEventHandler } from 'react';
-import styled from 'styled-components';
+import styled from "styled-components";
 
-type ButtonProps = {
-  label: string,
-  onSubmit?: FormEventHandler<HTMLButtonElement> | undefined
-  onClick?: MouseEventHandler<HTMLButtonElement> | undefined
-  outline?: boolean,
-  type: "button" | "submit" | "reset",
+interface ButtonProps {
+  variant: "unstyled" | "primary" | "outline",
 }
 
-export default function Button({ label, onSubmit, outline, type, onClick }: ButtonProps) {
+export const Button = styled.button<ButtonProps>`
+  transition: all .2s ease-in;
+  padding: 16px 24px;
+  cursor: pointer;
 
-  const StyledButton = styled.button`
-    border-radius: 4px;
-    padding: 16px 24px;
-    border: 1px solid var(--primary);
-    background-color:  ${outline ? 'var(--white)' : 'var(--primary)'};
-    transition: all .2s ease-in;
-    
-    &:hover {
-      background-color: ${outline ? 'var(--primary)' : 'var(--white)'};
-      cursor: pointer;
-      box-shadow: 0px 2px 5px -3px #0000006a;
+  line-height: normal;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  
+  border-radius: 4px;
+  border: ${({ variant }) => variant !== "unstyled" ? "2px solid var(--color-primary)" : "none"};
+  
+  color: ${({ variant }) => (
+    (variant == "outline") ? "var(--color-primary)" : 
+    (variant == "primary") ? "var(--color-white)" : 
+    "var(--color-gray-400)"
+  )};
+  
+  background-color: ${({ variant }) => (
+    (variant == "outline") ? "var(--color-white)" :
+    (variant == "primary") ? "var(--color-primary)" :
+    "transparent"
+  )};
+  
+  &:hover {
+    color: ${({ variant }) => (
+      (variant == "outline") ? "var(--color-white)" : 
+      (variant == "primary") && 
+      "var(--color-primary)"
+    )};
+   
+    box-shadow: ${({ variant }) => variant !== "unstyled" && "0px 2px 5px -3px #0000006a"};
+   
+    background-color: ${({ variant }) => (
+      (variant == "outline") ? "var(--color-primary)" :
+      (variant == "primary") &&
+      "var(--color-white)"
+    )};
+  }
 
-      span {
-        color:  ${outline ? 'var(--white)' : 'var(--primary)'};
-      }
-    }
-
-    span {
-      color:  ${outline ? 'var(--primary)' : 'var(--white)'};
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
-    }
-  `;
-
-  return (
-    <StyledButton onClick={onClick} onSubmit={onSubmit} type={type}>
-      <span>
-        {label ? label : "text"}
-      </span>
-    </StyledButton>
-  )
-}
+  &:disabled {
+    opacity: 0.6; 
+    color: ${({ variant }) => variant !== "unstyled" ? "var(--color-white)" : "var(--color-gray-300)"};
+    cursor: default;
+    box-shadow: none;
+    border-color: ${({ variant }) => variant !== "unstyled" ? "var(--color-gray-200)" : "transparent"};
+    background-color: ${({ variant }) => variant !== "unstyled" ? 'var(--color-gray-200)' : "transparent"};
+  }
+`;

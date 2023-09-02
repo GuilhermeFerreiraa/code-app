@@ -1,23 +1,22 @@
-import { styled } from 'styled-components';
-import IconArrow from './icon-arrow';
-import IconCart from './icon-cart';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { styled } from 'styled-components';
+import { IconCart } from '../icons';
 
 export default function CartInfo() {
 
   const { value } = useLocalStorage('cart-items');
 
   const Container = styled.div`
- align-items: center;
- display: flex;
+    align-items: center;
+    display: flex;
 
   span {
-   color: var(--text);
-   line-height: normal;
-   font-style: normal;
-   font-weight: 500;
-   font-size: 16px;
-   margin-right: 16px;
+    color: var(--color-gray-300);
+    line-height: normal;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    margin-right: 16px;
   }
 `;
 
