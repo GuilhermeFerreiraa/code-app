@@ -1,5 +1,5 @@
 
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 
 const IconLogo = styled.a`
   font-size: 20px;

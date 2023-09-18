@@ -1,9 +1,9 @@
 'use client'
+import { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
-import { ChangeEvent, SetStateAction, useState } from 'react';
 
-import { Button, Input } from '../';
 import breakpoints from '@/utils/breakpoints';
+import { Button, Input } from '../';
 
 const Container = styled.div`
   grid-template-columns: 1fr 0.25fr;
@@ -53,7 +53,7 @@ export default function DiscountCuopon() {
 
       <Button
         type="submit"
-        variant='outline'
+        $variant='outline'
         onSubmit={() => { }}
       >
         Aplicar

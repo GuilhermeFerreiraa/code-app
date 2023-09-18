@@ -1,5 +1,5 @@
 import { useStepOrder } from '@/hooks/useStepOrder';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import { IconCart } from '../icons';
 
 const Container = styled.div`
