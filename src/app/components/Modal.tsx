@@ -122,11 +122,11 @@ export default function Modal(props: ModalProps) {
         </p>
         <div className="button-modal-footer">
 
-          <Button variant="unstyled" onClick={props.btn_cancel_action}>
+          <Button $variant="unstyled" onClick={props.btn_cancel_action}>
             {props.btn_cancel_label ? props.btn_cancel_label : 'Cancelar ação'}
           </Button>
 
-          <Button variant="primary" onClick={props.btn_confirm_action}>
+          <Button $variant="primary" onClick={props.btn_confirm_action}>
             {props.btn_confirm_label ? props.btn_confirm_label : 'Confirmar ação'}
           </Button>
 

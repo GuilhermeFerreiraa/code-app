@@ -110,14 +110,14 @@ export default function LoginStep() {
         <Button
           className="btn-register"
           type="button"
-          variant="unstyled"
+          $variant="unstyled"
         >
           Registre-se para conta
         </Button>
 
         <Button
           type="submit"
-          variant="primary"
+          $variant="primary"
           className="btn-submit"
         >
           Entrar
