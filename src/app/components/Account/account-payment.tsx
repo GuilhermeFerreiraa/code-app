@@ -1,9 +1,9 @@
 'use client'
 
 import styled from 'styled-components'
-import { IconSeparetor } from '../icons';
 
 import { Input, FormGroup, Select } from '../';
+import breakpoints from '@/utils/breakpoints';
 
 const Container = styled.div`
   display: grid;
@@ -16,24 +16,46 @@ const Container = styled.div`
     justify-content: center;
   }
 
-  .expiration-card_fields-inputs {
-   align-items: end;
-   display: flex;
-   gap: 6px;
-   width: 100%;
+  .validation-box {
+    overflow-x: hidden;
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    justify-content: center;
+
+    p {
+      font-size: 14px;
+      font-weight: 500;
+      font-style: normal;
+      line-height: normal;
+      color: var(--color-gray-400);
+    }
+
+    .validation-info {
+      display: grid;
+      justify-content: space-evenly;
+      max-width: 100vw;
+      gap: 3px;
+      justify-content: start;
+      grid-template-columns: 40% 10% 40%;
+      margin-top: 10px;
+      justify-items: auto;
+      align-items: center;
+
+      input {
+        text-align: center;
+        font-size: 14px;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+    }
   }
-  
-  
-  .expiration-card_fields {
-   align-items: end;
-   display: flex;
-   gap: 6px;
 
-   input {
-    max-width: 90px;
-   }
-
-}
+  .divider {
+    font-size: 32px;
+    text-align: center;
+    color: var(--color-gray-400);
+  }
 `;
 
 const AddressSaved = styled.div`
@@ -43,11 +65,20 @@ const AddressSaved = styled.div`
   gap: 42px;
 
   p {
-   font-size: 16px;
+   font-size: 14px;
    font-style: normal;
    font-weight: 500;
    line-height: normal;
-   color: var(--color-500);
+   color: var(--color-gray-500);
+  }
+
+  @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
+    grid-template-columns: 1fr;
+    gap: 6px;
+
+    p {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -88,28 +119,31 @@ export default function PaymentStep() {
         />
       </FormGroup>
 
-      <div className="expiration-card_fields-inputs">
+      <div className="validation-box">
+        <div>
 
-        <div className="expiration-card_fields">
-          <FormGroup text="Expiração">
-            <Input
-              onChange={() => { }}
-              value="03"
-            />
-          </FormGroup>
-          <IconSeparetor />
-          <Input onChange={() => { }} value="24" />
+          <p>
+            Expiração
+          </p>
+
+          <div className="validation-info">
+            <Input placeholder="04" />
+
+            <span className="divider">
+              /
+            </span>
+
+            <Input placeholder="2024" />
+
+          </div>
         </div>
 
+
         <FormGroup text="CVC">
-          <Input
-            type="text"
-            value="123"
-            placeholder="1565"
-            onChange={() => { }}
-          />
+          <Input placeholder="123" />
         </FormGroup>
       </div>
+
     </Container>
   )
 }

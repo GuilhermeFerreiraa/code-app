@@ -2,8 +2,17 @@
 
 import styled from 'styled-components'
 import { Input, FormGroup, Select } from '../';
+import getStates from '@/services/getStates';
+import { useEffect, useState } from 'react';
+import breakpoints from '@/utils/breakpoints';
+import useAccount from './useAccount';
 
 interface DeliveryStepProps { }
+
+interface StateType {
+  id: number,
+  nome: string
+}
 
 const Container = styled.div`
  display: grid;
@@ -17,6 +26,22 @@ const Container = styled.div`
     justify-content: center;
   }
 
+  @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
+    .address_number-state_box {
+      display: grid;
+      grid-template-columns:auto auto;
+      gap: 2px;
+
+      input {
+        width: 70%;
+      }
+
+      select {
+        font-size: 14px;
+      }
+    }
+  }
+
 `;
 
 const AddressSaved = styled.div`
@@ -26,74 +51,75 @@ const AddressSaved = styled.div`
   gap: 42px;
 
   p {
-   font-size: 16px;
+   font-size: 14px;
    font-style: normal;
    font-weight: 500;
    line-height: normal;
    color: var(--color-500);
   }
+
+  @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
+    grid-template-columns: 1fr;
+    gap: 0px;
+  }
 `;
 
 export default function DeliveryStep(props: DeliveryStepProps) {
- return (
-  <Container>
-   <AddressSaved>
+  const { states } = useAccount();
 
-    <p>
-     Usar endereço salvo
-    </p>
+  return (
+    <Container>
+      {/* address saved */}
+      <AddressSaved>
+        <p>
+          Usar endereço salvo
+        </p>
 
-    <Select>
-     <option value="" disabled>Estado</option>
-     <option>
-      345, Carlos Rodrigo...
-     </option>
-     <option>
-      225, Rodrigo...
-     </option>
-    </Select>
+        <Select>
+          <option>
+            345, Carlos Rodrigo...
+          </option>
+          <option>
+            225, Rodrigo...
+          </option>
+        </Select>
 
-   </AddressSaved>
+      </AddressSaved>
 
-   <FormGroup text="Cidade">
-    <Input
-     type="text"
-     placeholder="São Paulo"
-     onChange={() => { }}
-    />
-   </FormGroup>
+      <FormGroup text="Cidade">
+        <Input
+          type="text"
+          placeholder="Ex: São Paulo"
+        />
+      </FormGroup>
 
-   <FormGroup text="Rua, Bairro">
-    <Input
-     type="text"
-     placeholder="Av. Paulista, Vila Mariana"
-     onChange={() => { }}
-    />
-   </FormGroup>
+      <FormGroup text="Rua, Bairro">
+        <Input
+          type="text"
+          placeholder="Ex: Av. Paulista, Vila Mariana"
+        />
+      </FormGroup>
 
-   <div className="address_number-state_box">
-    <FormGroup text="Número">
-     <Input
-      type="text"
-      placeholder="1565"
-      onChange={() => { }}
-     />
-    </FormGroup>
+      <div className="address_number-state_box">
 
-    <Select text="Estado">
-     <option value="" disabled>Estado</option>
+        <FormGroup text="Número">
+          <Input
+            type="text"
+            placeholder="Ex: 123"
+          />
+        </FormGroup>
 
-     <option value="sp">
-      Sao Paulo
-     </option>
-     <option value="rj">
-      Rio de Janeiro
-     </option>
-     <option value="mg">
-      Minas Gerais
-     </option>
-    </Select>
-   </div>
-  </Container>
- )
+        <Select text="Estado">
+          <option disabled placeholder='Selecionar Estados'>
+            Selecionar Estados
+          </option>
+          {states?.map((item: StateType) => (
+            <option key={item.id} value={item.id}>
+              {item.nome}
+            </option>
+          ))}
+        </Select>
+      </div>
+    </Container>
+  )
 }
