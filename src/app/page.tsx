@@ -7,7 +7,7 @@ import { CartProductDetails } from "./components/Cart";
 import breakpoints from '@/utils/breakpoints';
 
 const Container = styled.main`
-  padding: 40px 0 64px 0;
+  padding: 140px 0 64px 0;
   max-width: 1102px;
   margin: 0 auto;
 

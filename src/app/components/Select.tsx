@@ -11,7 +11,7 @@ interface SelectProps {
 
 const SelectStyled = styled.select`
   width: 100%;
-  height: 52px;
+  cursor: pointer;
   border: 1px solid var(--color-gray-200);
   background: var(--color-gray-50);
   font-size: 14px;
@@ -22,7 +22,7 @@ const SelectStyled = styled.select`
   padding: 14px 19px;
   font-weight: 500;
   outline: none;
-  margin-top: 11px;
+  margin-top: 10px;
 
  &[disabled] {
   opacity: 0.5;
@@ -30,7 +30,6 @@ const SelectStyled = styled.select`
 
  @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
     font-size: 14px;
-    height: auto;
  }
 `;
 
@@ -55,6 +54,7 @@ const Container = styled.div`
       display: none;
     }
   }
+
 `;
 
 const Title = styled.small`

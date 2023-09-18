@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import { IconArrow } from "../icons";
 import ModalAccount from "../modal-account";
 
@@ -17,6 +17,8 @@ const Container = styled.div`
     font-size: 14px;
     margin-right: 14px;
   }
+
+  
 `;
 
 export default function AccountInfo() {

@@ -1,10 +1,8 @@
 'use client'
 
-import styled from 'styled-components'
-import { Input, FormGroup, Select } from '../';
-import getStates from '@/services/getStates';
-import { useEffect, useState } from 'react';
 import breakpoints from '@/utils/breakpoints';
+import styled from 'styled-components';
+import { FormGroup, Input, Select } from '../';
 import useAccount from './useAccount';
 
 interface DeliveryStepProps { }

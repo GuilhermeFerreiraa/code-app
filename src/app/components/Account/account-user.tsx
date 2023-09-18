@@ -143,13 +143,13 @@ export default function AccountDetails() {
         <Button
           type="button"
           className="btn-cancel-order"
-          variant="unstyled"
+          $variant="unstyled"
           onClick={() => setIsOpenModal((prevState: any) => !prevState)}
         >
           Cancelar pedido
         </Button>
 
-        <Button onClick={handleContinueCheckOut} type="submit" variant="primary">
+        <Button onClick={handleContinueCheckOut} type="submit" $variant="primary">
           Continuar comprando
         </Button>
       </LeaveCartContainer>
