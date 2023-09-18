@@ -2,6 +2,7 @@
 
 import styled from 'styled-components'
 import { IconArrow } from './icons';
+import breakpoints from '@/utils/breakpoints';
 
 interface SelectProps {
   children: React.ReactNode,
@@ -13,18 +14,23 @@ const SelectStyled = styled.select`
   height: 52px;
   border: 1px solid var(--color-gray-200);
   background: var(--color-gray-50);
-  font-size: 16px;
+  font-size: 14px;
   appearance: none;
   transition: all 0.2s ease-in;
-  color: var(--color-gray-500);
+  color: var(--color-gray-400);
   border-radius: 5px;
-  padding: 16px 19px;
+  padding: 14px 19px;
   font-weight: 500;
   outline: none;
   margin-top: 11px;
 
  &[disabled] {
   opacity: 0.5;
+ }
+
+ @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
+    font-size: 14px;
+    height: auto;
  }
 `;
 
@@ -43,6 +49,12 @@ const Container = styled.div`
       height: 20px;
     }
   }
+
+  @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
+    .icon-arrow {
+      display: none;
+    }
+  }
 `;
 
 const Title = styled.small`
@@ -50,8 +62,12 @@ const Title = styled.small`
   line-height: normal;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   padding-bottom: 11px;
+
+  @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
+    font-size: 14px;
+  }
 `;
 
 export default function Select(props: SelectProps) {
