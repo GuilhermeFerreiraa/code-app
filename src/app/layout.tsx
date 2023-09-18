@@ -4,6 +4,8 @@ import { Inter } from 'next/font/google'
 import Header from './components/Header'
 import { PayOrderProvider } from '@/context/pay-order-context'
 
+import { Toaster } from 'react-hot-toast';
+
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
 export const metadata: Metadata = {
@@ -22,6 +24,7 @@ export default function RootLayout({
         <PayOrderProvider>
           <Header />
           {children}
+          <Toaster position="bottom-center" />
         </PayOrderProvider>
       </body>
     </html>
