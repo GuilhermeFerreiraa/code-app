@@ -1,6 +1,4 @@
 'use client'
-/* eslint-disable @next/next/no-img-element */
-import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 import Image from 'next/image';
 
@@ -8,21 +6,30 @@ import styled from 'styled-components';
 
 import product_img from '../../../../public/product.png';
 
-import { TotalPrice, AddProducts, DiscountCuopon } from './';
+import { useStepOrder } from '@/hooks/useStepOrder';
+import breakpoints from '@/utils/breakpoints';
+import { AddProducts, DiscountCuopon, TotalPrice } from './';
 
 const Container = styled.div`
   display: flex; 
-  flex-direction: column;
   align-items: start;
-  justify-content: start ;
+  flex-direction: column;
+  justify-content: start;
 
   img {
-    border-radius: 12px;
-    max-width: 100%;
     height: 100%; 
-    
-    object-fit: cover;
+    max-width: 100%;
     max-height: 162px;
+    border-radius: 12px;
+    object-fit: contain;
+  }
+
+  @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
+    margin-top: 42px;
+  }
+
+  @media screen and (${breakpoints.device.sm}) and (max-width: ${breakpoints.size.lg}){
+    margin-top: 0px;
   }
 `;
 
@@ -33,11 +40,22 @@ const ResumeTitle = styled.h2`
   font-weight: 500;
   line-height: normal;
   margin-bottom: 26px;
+  
+  @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
+    margin-bottom: 12px; 
+    font-size: 14px;
+  }
+  
+  @media only screen and (${breakpoints.device.sm}) and (max-width: ${breakpoints.size.lg}){
+    margin-bottom: 26px;
+    padding-top: 4px;
+    font-size: 14px;
+  }
 `;
 
 export default function CartProductDetails() {
 
-  const { value, updateLocalStorage } = useLocalStorage('cart-items');
+  const { orderSize } = useStepOrder();
 
   const tribute = 3.45;
   const price = 149.99;
@@ -58,14 +76,16 @@ export default function CartProductDetails() {
 
       <AddProducts
         price={price}
-        quantity={value}
-        updateCart={updateLocalStorage}
         product_name='Mouse Gamer Redragon'
       />
 
       <DiscountCuopon />
 
-      <TotalPrice price={price} value={value} tribute={tribute} />
+      <TotalPrice
+        price={price}
+        value={orderSize}
+        tribute={tribute}
+      />
 
     </Container>
   )

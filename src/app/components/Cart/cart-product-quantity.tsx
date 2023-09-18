@@ -1,14 +1,14 @@
 'use client'
 
-import { formatCurrency } from '@/utils/formatCurrency';
+import { useStepOrder } from '@/hooks/useStepOrder';
+import { formatCurrency } from '@/utils';
+import breakpoints from '@/utils/breakpoints';
 
 import styled from 'styled-components'
 
 interface ProductProps {
   product_name: string,
-  quantity: number,
   price: number,
-  updateCart: (newValue: unknown) => number | void,
 }
 
 const Product = styled.div`
@@ -32,6 +32,16 @@ const Product = styled.div`
     font-style: normal;
     line-height: normal;
     color: var(--color-gray-500);
+  }
+
+  @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
+    p {
+      font-size: 14px;
+    }
+
+    span {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -62,6 +72,17 @@ const EditButtons = styled.div`
    margin: 0 14px;
    font-size: 18px;
   }
+
+  @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
+    button {
+      width: 20px;
+      height: 20px;
+    }
+    
+    span {
+      font-size: 14px;
+    } 
+  }
 `;
 
 const Container = styled.div`
@@ -70,9 +91,16 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between; 
   width: 100%;
+
+  @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
+    margin-top: 12px;
+  }
 `
 
 export default function AddProducts(props: ProductProps) {
+
+  const { orderSize, setOrderSize } = useStepOrder();
+
   return (
     <Container>
       <Product>
@@ -80,18 +108,18 @@ export default function AddProducts(props: ProductProps) {
           {props.product_name}
         </p>
         <span>
-          {props.quantity > 1 ? formatCurrency(props.price * props.quantity) : 'R$ 149,99'}
+          {orderSize > 1 ? formatCurrency(props.price * orderSize) : 'R$ 149,99'}
         </span>
       </Product>
 
       <EditButtons>
-        <button disabled={props.quantity == 0} onClick={() => props.updateCart(props.quantity - 1)}>
+        <button disabled={orderSize == 0} onClick={() => setOrderSize((prev: number) => prev - 1)}>
           -
         </button>
         <span>
-          {props.quantity ? props.quantity : 0}
+          {orderSize ? orderSize : 0}
         </span>
-        <button onClick={() => props.updateCart(props.quantity + 1)}>
+        <button onClick={() => setOrderSize((prev: number) => prev + 1)}>
           +
         </button>
       </EditButtons>

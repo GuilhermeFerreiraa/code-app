@@ -2,20 +2,21 @@
 
 import { styled } from 'styled-components';
 import { IconCheck } from '../icons';
+import breakpoints from '@/utils/breakpoints';
 
 interface StepProps {
   currentStep: number,
 }
 
 const Container = styled.div`
+  gap: 18px;
   display: flex;
   align-items:center;
-  gap: 18px;
 
   div {
-   align-items: center;
-   display: flex;
-   gap: 18px;
+    gap: 18px;
+    display: flex;
+    align-items: center;
   }
 
   p {
@@ -27,7 +28,7 @@ const Container = styled.div`
 
   span {
    width: 24px;
-   height: 1px;
+   height: 0.5px;
    background-color: var(--color-gray-300);
   }
   
@@ -41,17 +42,43 @@ const Container = styled.div`
    svg {
     fill: var(--color-primary);
    }
+
    span {
     background-color: var(--color-primary);
    }   
+
+  }
+
+  @media only screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
+    display: none;
+  }
+
+  @media only screen and (${breakpoints.device.sm}) and (max-width: ${breakpoints.size.lg}){
+    display: flex;
+
+    div {
+      gap: 10px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    span {
+      width: 14px;
+    }
+
+    svg {
+      width: 12px;
+    }
   }
 `;
 
-export default function Steps(props: StepProps) {
+export default function Steps({ currentStep }: StepProps) {
 
   return (
     <Container>
-      <div className={props.currentStep >= 0 ? "isChecked" : ""}>
+      <div className={currentStep >= 0 ? "isChecked" : ""}>
         <p>
           Conta
         </p>
@@ -60,7 +87,7 @@ export default function Steps(props: StepProps) {
         <span />
       </div>
 
-      <div className={props.currentStep > 0 ? "isChecked" : ""}>
+      <div className={currentStep > 0 ? "isChecked" : ""}>
         <p>
           Envio
         </p>
@@ -69,7 +96,7 @@ export default function Steps(props: StepProps) {
         <span />
       </div>
 
-      <p className={props.currentStep > 1 ? "isChecked" : ""}>
+      <p className={currentStep > 1 ? "isChecked" : ""}>
         Pagamento
       </p>
     </Container>

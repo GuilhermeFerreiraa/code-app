@@ -1,29 +1,53 @@
 'use client'
 import styled from 'styled-components';
-import { SetStateAction, useState } from 'react';
+import { ChangeEvent, SetStateAction, useState } from 'react';
 
 import { Button, Input } from '../';
-
-interface DiscountProps { }
+import breakpoints from '@/utils/breakpoints';
 
 const Container = styled.div`
   grid-template-columns: 1fr 0.25fr;
   align-items: center;
-  margin: 60px 0;
+  margin: 32px 0;
   display: grid;
   width: 100%;
   gap: 32px;
+
+  @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}) {
+    margin: 24px 0;
+    gap: 32px;
+
+    input {
+      padding: 14px;
+      width: 90%;
+
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+
+    button {
+      padding: 14px;
+      font-size: 14px;
+    }
+  }
 `;
 
-export default function DiscountCuopon(props: DiscountProps) {
+export default function DiscountCuopon() {
   const [couponValue, setCouponValue] = useState('');
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+
+    setCouponValue(value);
+  };
 
   return (
     <Container>
       <Input
         type='text'
         value={couponValue}
-        onChange={(event: { target: { value: SetStateAction<string>; }; }) => setCouponValue(event.target.value)}
+        onChange={handleInputChange}
         placeholder="Cupom de desconto"
       />
 

@@ -1,4 +1,5 @@
-import { formatCurrency } from '@/utils/formatCurrency';
+import { formatCurrency } from '@/utils';
+import breakpoints from '@/utils/breakpoints';
 import styled from 'styled-components';
 
 interface TotalProps {
@@ -42,6 +43,16 @@ const TotalPriceContainer = styled.ul`
       p, span {
         font-weight: 600;
       } 
+    }
+
+    @media screen and (${breakpoints.device.xs}) and (max-width: ${breakpoints.size.sm}){
+      gap: 14px;
+
+      li {
+        p, span {
+          font-size: 14px;
+        }
+      }
     }
 `;
 
