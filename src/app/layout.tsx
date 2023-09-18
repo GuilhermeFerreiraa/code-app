@@ -5,6 +5,7 @@ import Header from './components/Header'
 import { PayOrderProvider } from '@/context/pay-order-context'
 
 import { Toaster } from 'react-hot-toast';
+import StyledComponentsRegistry from '@/styles/StyledComponentsRegistry'
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
@@ -21,11 +22,13 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={inter.className}>
-        <PayOrderProvider>
-          <Header />
-          {children}
-          <Toaster position="bottom-center" />
-        </PayOrderProvider>
+        <StyledComponentsRegistry>
+          <PayOrderProvider>
+            <Header />
+            {children}
+            <Toaster position="bottom-center" />
+          </PayOrderProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   )
