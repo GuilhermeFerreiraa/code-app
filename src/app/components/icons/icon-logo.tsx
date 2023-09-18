@@ -1,9 +1,7 @@
 
 import { styled } from 'styled-components';
 
-export default function Logo() {
-
-  const IconLogo = styled.a`
+const IconLogo = styled.a`
   font-size: 20px;
   font-weight: 700;
   color: var(--color-gray-300);
@@ -12,6 +10,7 @@ export default function Logo() {
   text-decoration: none;
 `;
 
+export default function Logo() {
   return (
     <IconLogo href="/">
       codepay.

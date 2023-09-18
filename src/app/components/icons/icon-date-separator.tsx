@@ -1,4 +1,4 @@
-export default function IconSeparetor() {
+export default function IconSeparator() {
  return (
   <svg width="11" height="29" viewBox="0 0 11 29" fill="none" xmlns="http://www.w3.org/2000/svg">
    <line x1="9.95203" y1="0.306009" x2="0.952029" y2="28.306" stroke="#4A5568" stroke-width="2" />
