@@ -107,7 +107,8 @@ export default function LoginStep() {
 
       <ButtonsContainer>
 
-        <Button
+        <Button 
+          role="button"
           className="btn-register"
           type="button"
           $variant="unstyled"
@@ -115,7 +116,8 @@ export default function LoginStep() {
           Registre-se para conta
         </Button>
 
-        <Button
+        <Button 
+          role="button"
           type="submit"
           $variant="primary"
           className="btn-submit"

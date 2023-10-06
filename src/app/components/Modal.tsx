@@ -113,7 +113,7 @@ export default function Modal(props: ModalProps) {
       <StyledModal>
         <div className="title-modal-header">
           <p>{props.title ? props.title : 'Insira um texto'}</p>
-          <button onClick={props.btn_cancel_action}>
+          <button role="button" onClick={props.btn_cancel_action}>
             <IconClose />
           </button>
         </div>
@@ -122,11 +122,15 @@ export default function Modal(props: ModalProps) {
         </p>
         <div className="button-modal-footer">
 
-          <Button $variant="unstyled" onClick={props.btn_cancel_action}>
+          <Button role="button" $variant="unstyled" onClick={props.btn_cancel_action}>
             {props.btn_cancel_label ? props.btn_cancel_label : 'Cancelar ação'}
           </Button>
 
-          <Button $variant="primary" onClick={props.btn_confirm_action}>
+          <Button 
+            role="button" 
+            $variant="primary" 
+            onClick={props.btn_confirm_action}
+          >
             {props.btn_confirm_label ? props.btn_confirm_label : 'Confirmar ação'}
           </Button>
 

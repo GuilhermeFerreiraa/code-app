@@ -141,6 +141,7 @@ export default function AccountDetails() {
 
       <LeaveCartContainer>
         <Button
+          role="button"
           type="button"
           className="btn-cancel-order"
           $variant="unstyled"
@@ -149,7 +150,12 @@ export default function AccountDetails() {
           Cancelar pedido
         </Button>
 
-        <Button onClick={handleContinueCheckOut} type="submit" $variant="primary">
+        <Button
+          role="button"
+          type="submit"
+          $variant="primary"
+          onClick={handleContinueCheckOut}
+        >
           Continuar comprando
         </Button>
       </LeaveCartContainer>

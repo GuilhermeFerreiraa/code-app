@@ -113,13 +113,13 @@ export default function AddProducts(props: ProductProps) {
       </Product>
 
       <EditButtons>
-        <button disabled={orderSize == 0} onClick={() => setOrderSize((prev: number) => prev - 1)}>
+        <button role="button" disabled={orderSize == 0} onClick={() => setOrderSize((prev: number) => prev - 1)}>
           -
         </button>
         <span>
           {orderSize ? orderSize : 0}
         </span>
-        <button onClick={() => setOrderSize((prev: number) => prev + 1)}>
+        <button role="button" onClick={() => setOrderSize((prev: number) => prev + 1)}>
           +
         </button>
       </EditButtons>

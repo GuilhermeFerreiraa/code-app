@@ -14,6 +14,7 @@ import React, { useState } from 'react'
 import breakpoints from "@/utils/breakpoints";
 
 const Navbar = styled.header`
+  box-shadow: 2px 0px 5px #00000030;
   border-bottom: 1px solid var(--color-gray-100);
 
   .nav-bar {
@@ -173,7 +174,7 @@ export default function Header() {
         <NavList>
           {navItem.map((item) => (
             <li key={item.id}>
-              <a>
+              <a href="#">
                 {item.name}
               </a>
             </li>
@@ -192,17 +193,17 @@ export default function Header() {
 
         <ul>
           <li>
-            <button>
+            <button role="button">
               <IconCart />
             </button>
           </li>
           <li>
-            <button>
+            <button role="button">
               <IconProfile />
             </button>
           </li>
           <li onClick={toggleMenu}>
-            <button onClick={toggleMenu}>
+            <button role="button" onClick={toggleMenu}>
               <IconBurgerMenu />
             </button>
           </li>
