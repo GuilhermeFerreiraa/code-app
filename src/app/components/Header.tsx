@@ -193,17 +193,17 @@ export default function Header() {
 
         <ul>
           <li>
-            <button role="button">
+            <button role="button" aria-label="button-icon-cart">
               <IconCart />
             </button>
           </li>
           <li>
-            <button role="button">
+            <button role="button" aria-label="button-icon-profile">
               <IconProfile />
             </button>
           </li>
           <li onClick={toggleMenu}>
-            <button role="button" onClick={toggleMenu}>
+            <button role="button" onClick={toggleMenu} aria-label="button-icon-burger-menu">
               <IconBurgerMenu />
             </button>
           </li>

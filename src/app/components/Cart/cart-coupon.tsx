@@ -52,6 +52,7 @@ export default function DiscountCuopon() {
       />
 
       <Button
+        aria-label="button-apply-coupon"
         type="submit"
         $variant='outline'
         onSubmit={() => { }}

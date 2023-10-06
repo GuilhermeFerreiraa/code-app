@@ -109,14 +109,16 @@ export default function LoginStep() {
 
         <Button 
           role="button"
-          className="btn-register"
           type="button"
+          aria-label="button-sign-in"
           $variant="unstyled"
+          className="btn-register"
         >
           Registre-se para conta
         </Button>
 
         <Button 
+          aria-label="button-login"
           role="button"
           type="submit"
           $variant="primary"

@@ -69,7 +69,7 @@ export default function CartProductDetails() {
       <Image
         width={500}
         height={500}
-        placeholder="empty"
+        layout="responsive"
         alt="product-image"
         src={product_img}
       />

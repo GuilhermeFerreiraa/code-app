@@ -83,10 +83,10 @@ const LeaveCartContainer = styled.div`
     }
 
     .btn-cancel-order {
-      background: #D1402C1A;
+      background: var(--color-error);
       font-weight: 500;
       padding: 14px 24px !important;
-      color: var(--color-error);
+      color: var(--color-white);
     }
   }
 
@@ -151,6 +151,7 @@ export default function AccountDetails() {
         </Button>
 
         <Button
+          aria-label="button-keep-buying"
           role="button"
           type="submit"
           $variant="primary"

@@ -113,13 +113,21 @@ export default function AddProducts(props: ProductProps) {
       </Product>
 
       <EditButtons>
-        <button role="button" disabled={orderSize == 0} onClick={() => setOrderSize((prev: number) => prev - 1)}>
+        <button
+          aria-label="button-plus-add-to-cart"
+          role="button" disabled={orderSize == 0}
+          onClick={() => setOrderSize((prev: number) => prev - 1)}
+        >
           -
         </button>
         <span>
           {orderSize ? orderSize : 0}
         </span>
-        <button role="button" onClick={() => setOrderSize((prev: number) => prev + 1)}>
+        <button
+          role="button"
+          aria-label="button-plus-add-to-cart"
+          onClick={() => setOrderSize((prev: number) => prev + 1)}
+        >
           +
         </button>
       </EditButtons>
