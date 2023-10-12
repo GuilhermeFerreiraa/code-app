@@ -96,6 +96,7 @@ export default function LoginStep() {
 
       <FormGroup text="Senha" error={errors.password}>
         <Input
+          id="password"
           type="password"
           name="password"
           value={formData.password}
